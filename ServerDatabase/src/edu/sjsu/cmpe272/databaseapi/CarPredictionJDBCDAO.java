@@ -28,10 +28,18 @@ public class CarPredictionJDBCDAO {
 	}
 
 
-	public boolean authenticateUser() {
+	
+	
+	public void getWeightage() {
 		try 
 		{
-			String queryString = "SELECT \"UserID\", \"UserName\", \"Password\"FROM \"User\"";
+			String queryString = "Select ur.\"QuestionID\", ur.\"AnswerID\", " +
+					"q.\"QuestionWeight\", a.\"AnswerWeight\" " +
+					"from \"AnswerResponse\" ur,  \"Questions\" q, \"Answers\" a " +
+					"where ur.\"QuestionID\" = q.\"QuestionID\" " +
+					"and ur.\"AnswerID\"  = a.\"AnswerID\" " +
+					"and a.\"QuestionID\" = q.\"QuestionID\"";
+			
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
 			resultSet = ptmt.executeQuery();
@@ -39,10 +47,10 @@ public class CarPredictionJDBCDAO {
 
 			while (resultSet.next()) 
 			{
-				System.out.println("UserId: " + resultSet.getString(1) );
-				System.out.println("UserName: " + resultSet.getString(2) );
-				System.out.println("Password: " + resultSet.getString(3) );
-				return true;
+				System.out.println("QuestionID: " + resultSet.getString(1) );
+				System.out.println("AnswerID: " + resultSet.getString(2) );
+				System.out.println("QuestionWeight: " + resultSet.getString(3) );
+				System.out.println("AnswerWeight: " + resultSet.getString(4) );
 
 			}
 		} 
@@ -67,18 +75,15 @@ public class CarPredictionJDBCDAO {
 			}
 
 		}
-		return false;
 
 	}
-
+	
+	
 
 	public static void main(String[] args) {
 		CarPredictionJDBCDAO carDatabase = new CarPredictionJDBCDAO();
 
-		boolean loginSucess = carDatabase.authenticateUser();
-		if(loginSucess == true)
-		{
-			System.out.println("Ok Success");
-		}
+		carDatabase.getWeightage();
+		
 	}
 }

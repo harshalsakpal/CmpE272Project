@@ -12,8 +12,7 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 	private String driverClassName = "org.postgresql.Driver";
-	//private String connectionUrl = "jdbc:postgresql://hostname/mokashi";
-	private String connectionUrl = "jdbc:postgresql://localhost:6666/cmpe272group7";
+	private String connectionUrl = "jdbc:postgresql://192.168.1.4:5555/CarDatabase";
 	private String dbUser = "postgres";
 	private String dbPwd = "postgres";
 	
