@@ -12,14 +12,13 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 	private String driverClassName = "org.postgresql.Driver";
-	//private String connectionUrl = "jdbc:postgresql://hostname/mokashi";
-	private String connectionUrl = "jdbc:postgresql://localhost:6666/cmpe272group7";
+	private String connectionUrl = "jdbc:postgresql://localhost:5555/CarDatabase";
 	private String dbUser = "postgres";
 	private String dbPwd = "postgres";
 	
 	 private static ConnectionFactory connectionFactory = null;
 
-     private ConnectionFactory() {
+     public ConnectionFactory() {
              try {
                      Class.forName(driverClassName);
              } catch (ClassNotFoundException e) {
