@@ -1,0 +1,85 @@
+<html>
+<head>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+      google.load('visualization', '1', {packages:['gauge']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data1 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Car Prediction', 79]
+         
+        ]);
+
+        var data2 = google.visualization.arrayToDataTable([
+                                                          ['Label', 'Value'],
+                                                          ['Car Prediction', 34]
+                                                         
+                                                        ]);
+
+
+        var data3 = google.visualization.arrayToDataTable([
+                                                          ['Label', 'Value'],
+                                                          ['Car Prediction', 12]
+                                                         
+                                                        ]);
+
+
+        var data4 = google.visualization.arrayToDataTable([
+                                                          ['Label', 'Value'],
+                                                          ['Car Prediction', 45]
+                                                         
+                                                        ]);
+
+
+        var data5 = google.visualization.arrayToDataTable([
+                                                          ['Label', 'Value'],
+                                                          ['Car Prediction', 77]
+                                                         
+                                                        ]);
+
+        
+        var options = {
+          width: 700, height: 300,
+          redFrom: 0, redTo: 50,
+          yellowFrom:51, yellowTo: 100,
+          minorTicks: 5
+        };
+
+        var chart1 = new google.visualization.Gauge(document.getElementById('chart_div1'));
+        chart1.draw(data1, options);
+
+        var chart2 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+        chart2.draw(data2, options);
+
+        var chart3 = new google.visualization.Gauge(document.getElementById('chart_div3'));
+        chart3.draw(data3, options);
+
+        var chart4 = new google.visualization.Gauge(document.getElementById('chart_div4'));
+        chart4.draw(data4, options);
+
+        var chart5 = new google.visualization.Gauge(document.getElementById('chart_div5'));
+        chart5.draw(data5, options);
+        
+      }
+      
+    </script>
+</head>
+<body>
+	<div id='chart_div1'></div>
+	<div id='chart_div2'></div>
+	<div id='chart_div3'></div>
+	<div id='chart_div4'></div>
+	<div id='chart_div5'></div>
+	<table border="1" bgcolor="Red">
+		<tr>
+			<th>New Car</th>
+		</tr>
+	</table>
+	<table border="1" bgcolor="Orange">
+		<tr>
+			<th>Old Car</th>
+		</tr>
+	</table>
+</body>
+</html>
